@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    background: rgba(178, 235, 242, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar>.app_logo{
+    background-image: url("../static/forecast_icon.png");
+    width: 80px;
+    height: 80px;
+    background-repeat: no-repeat;
+}
+.navbar>.app_name{
+    margin: 2px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
