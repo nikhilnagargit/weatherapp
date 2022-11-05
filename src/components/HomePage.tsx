@@ -1,5 +1,7 @@
 import React from 'react'
+import SearchBar from './SearchBar';
 import "./styles.css";
+import WatchList from './WatchList';
 
 const HomePage:React.FC = () => {
   return (<div>
@@ -7,7 +9,10 @@ const HomePage:React.FC = () => {
       <span className='app_logo'></span>
       <span className='app_name'>Weather Forecast</span>
     </div>
-    <div className='container'>HomePage</div>
+    <div className='container'>
+     <SearchBar/>
+     <WatchList/>
+    </div>
     </div>
   )
 }
