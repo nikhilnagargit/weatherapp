@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const WatchList:React.FC = () => {
+const WatchList: React.FC = () => {
   return (
-    <div className='watchlist'>WatchList</div>
-  )
-}
+    <div className="blank_watchlist">
+      <div className="img"></div>
+      <div className="message">No locations added to watchlist</div>
+    </div>
+  );
+};
 
-export default WatchList
+export default WatchList;
