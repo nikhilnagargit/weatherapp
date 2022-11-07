@@ -4,11 +4,12 @@
   }
 
   .mycontainer {
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
   }
 
   .searchbarcontainer {
     width: 100%;
+    margin-top: 0;
   }
 
   .searchbar {
@@ -21,5 +22,81 @@
   }
 
   .searchbar > input {
+  }
+
+  .searchbarcontainer > .pillcontainer {
+    width: 100%;
+  }
+  .searchbarcontainer > .pillcontainer > .pill {
+    border-radius: 10px;
+  }
+  .weatherdatacard {
+    width: 250px;
+    margin-left: 0;
+    align-self: center;
+  }
+  .detailPagecontainer {
+    height: 80vh;
+    width: 100%;
+    margin: 0 0;
+    position: relative;
+  }
+  .details-container {
+    margin: 5px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-areas:
+      "w w w w "
+      "i i i i "
+      "g g g g ";
+  }
+  .graph-card {
+    flex-direction: column-reverse;
+  }
+  .graph-card > .left {
+    align-self: flex-start;
+  }
+  .graph-card > .left > .heading,
+  .sun-info {
+    font-size: 10px;
+  }
+  .info-card > .item > .value {
+    font-size: 12px;
+  }
+  .info-card > .item > .name {
+    font-size: 12px;
+  }
+  .graph-card > .right {
+    margin: 5px;
+    min-height: 80px;
+    min-width: 200px;
+    background: url("../static/graph.png") no-repeat center;
+    background-size: contain;
+  }
+  .details-container {
+    margin-top: 20px;
+  }
+
+  .action-card > span {
+    font-size: 12px;
+  }
+  .action-card > button {
+    padding: 0 4px;
+    font-size: 10px;
+    border-radius: 30px;
+    margin-left: 4px;
+  }
+  .back-btn {
+    margin: 5px;
+    font-size: 12px;
+  }
+  .backarrow {
+    width: 10px;
+    height: 10px;
+    margin: 5 px;
+  }
+  .watchlistcontainer {
+    width: 100vw;
+    height: 100vh;
   }
 }

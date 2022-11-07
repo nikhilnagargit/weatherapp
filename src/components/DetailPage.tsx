@@ -8,14 +8,7 @@ const DetailPage: React.FC<any> = ({ currentCity }) => {
 
   return (
     <>
-      <div className="details-container">
-        <div className="weather-card">
-          <div className="icon"></div>
-          <div className="cityname">{currentCity.name} &#9664;</div>
-          <div className="temprature">
-            {(currentCity.main.temp - 273.15).toPrecision(2)}&#176;
-          </div>
-        </div>
+      <div className="action-card-container">
         <div className="action-card">
           {
             // if my current city , already exist in watchlist, then show remove button, otherwise show add button
@@ -29,20 +22,29 @@ const DetailPage: React.FC<any> = ({ currentCity }) => {
                 remove
               </button>
             ) : (
-              <div>
+              <>
                 <span>Add to list </span>
                 <button
-                  className="btn btn-info btn-sm"
+                  className="btn btn-secondary btn-sm"
                   onClick={() => {
                     dispatch(add(currentCity));
                   }}>
                   +
                 </button>
-              </div>
+              </>
             )
           }
-          {/*  */}
         </div>
+      </div>
+      <div className="details-container">
+        <div className="weather-card">
+          <div className="icon"></div>
+          <div className="cityname">{currentCity.name} </div>
+          <div className="temprature">
+            {(currentCity.main.temp - 273.15).toPrecision(2)}&#176;
+          </div>
+        </div>
+
         <div className="info-card">
           <div className="item">
             <div className="name">TIME</div>
@@ -63,13 +65,13 @@ const DetailPage: React.FC<any> = ({ currentCity }) => {
         </div>
         <div className="graph-card">
           <div className="left">
-            <div className="heading">Sunrise and Sunset</div>
+            <div className="heading">Sunrise and Sunset-</div>
             <div className="sun-info">
               <div>
-                Length of the day : <strong>xxx</strong>
+                Length of the day : <strong>10Hr 26Min</strong>
               </div>
               <div>
-                Remaining Daylight : <strong>xxx</strong>
+                Remaining Daylight : <strong>1Hr 34Min</strong>
               </div>
             </div>
           </div>

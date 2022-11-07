@@ -7,19 +7,19 @@ const WeatherCard = () => {
   return (
     <div className="weatherdatacard">
       <div className="header">
-        <h2>{weatherdata.name}</h2>
+        <div>{weatherdata.name}</div>
         <Link to={"/details"} className="arrow"></Link>
       </div>
       <div className="middle">
-        <h1>{(weatherdata.main.temp - 273.15).toPrecision(2)}&#176;</h1>
-        <div></div>
+        <div>{(weatherdata.main.temp - 273.15).toPrecision(2)}&#176;</div>
+        <div className="icon"></div>
       </div>
       <div className="bottom">
         <div className="block">
           <span className="icon"></span>
           <span className="text">WARNING</span>
         </div>
-        <div>{weatherdata.weather[0].description}</div>
+        <div className="desc">{weatherdata.weather[0].description}</div>
       </div>
     </div>
   );
