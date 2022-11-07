@@ -24,6 +24,11 @@ const currentCitySlice = createSlice(
             setCityName:(state,action:PayloadAction<string>)=>{
                 state.name = action.payload;
             },
+            removeCityName:(state)=>{
+                state.name = "";
+                state.data = {};
+                state.error = "";
+            }
         },
         extraReducers:(builder)=>{
             builder.addCase(fetchWeatherData.pending,(state)=>{
@@ -44,4 +49,4 @@ const currentCitySlice = createSlice(
 )
 
 export default currentCitySlice.reducer;
-export const {setCityName} = currentCitySlice.actions;
+export const {setCityName,removeCityName} = currentCitySlice.actions;

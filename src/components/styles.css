@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
 
 * {
-  margin: 0px;
   font-family: "Roboto", sans-serif;
 }
 
-.navbar {
+.navbartop {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,52 +12,63 @@
   background: rgba(178, 235, 242, 0.5);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
-.navbar > .app_logo {
+.navbartop > .app_logo {
   background: url("../static/forcast_icon.png") no-repeat center;
   height: 50px;
   width: 50px;
   margin: 0.5vh 1.5vw;
 }
-.navbar > .app_name {
+.navbartop > .app_name {
   font-weight: 600;
   font-size: 15px;
 }
 
-.container {
+.mycontainer {
   height: 90vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.searchbarcontainer {
+  width: 60vw;
+  height: auto;
+  max-width: 700px;
+  padding: 15px;
 }
 
 .searchbar {
-  position: relative;
-  margin-top: 40px;
-}
-.searchbar > button {
-  position: absolute;
-  margin-top: 40px;
-  right: 0px;
-  width: 45px;
-  height: 37px;
-  border-bottom-right-radius: 26px;
-  border-top-right-radius: 26px;
-  border: 1px solid #dadada;
-  background: url("../static/search_icon.png") no-repeat center;
-  background-size: 15px 15px;
-}
-
-.searchbar > input {
-  padding-left: 20px;
-  font-size: 15px;
-  width: 40vw;
-  height: 35px;
   background: #fdfcfc;
   border: 1px solid #dadada;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 26px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.searchbar > button {
+  border: none;
+  width: 20px;
+  height: 20px;
+  background: url("../static/search_icon.png") no-repeat center;
+  background-size: contain;
+}
+
+.searchbar > input {
+  width: 90%;
+  border: none;
+  font-size: 15px;
+  margin-left: 10px;
+}
+.searchbar > input::placeholder {
+  color: #cacaca;
+}
+
+.searchbar > input:focus {
+  outline: none;
 }
 
 .searchbar > .pillcontainer {
@@ -76,12 +86,7 @@
 .searchbar > .pillcontainer > .pill:hover {
   background: #f0efefe4;
 }
-.searchbar > input:hover {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
-}
-.searchbar > input:focus {
-  outline: none;
-}
+
 .blank_watchlist {
   margin-top: 40px;
 }
@@ -95,13 +100,34 @@
   font-size: 15px;
 }
 
-.back-btn > a {
-  text-decoration: none;
-  color: #0170fe;
-  font-weight: bold;
+.watchlistcontainer {
+  width: 70vw;
+  height: 70vh;
+  border: 2px solid blue;
+}
+
+.detailPagecontainer {
+  height: 80vh;
+  width: auto;
+  margin: 0px 15vw;
+  position: relative;
 }
 .back-btn {
-  grid-area: b;
+  position: absolute;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #0170fe;
+  text-decoration: none;
+  font-size: 20px;
+}
+.back-btn > div:hover {
+  transform: scale(1.1);
+}
+
+.removebtn {
+  z-index: 100;
 }
 .weather-card {
   display: flex;
@@ -173,10 +199,15 @@
   color: #5a5a5a;
 }
 .graph-card > .right {
-  margin: 20px;
+  height: 100px;
+  width: 300px;
+  background: url("../static/graph.png") no-repeat center;
+  background-size: contain;
 }
 .action-card {
-  grid-area: a;
+  position: absolute;
+  right: 3vw;
+  top: 5vh;
 }
 
 .details-container {
@@ -184,38 +215,81 @@
   display: grid;
   grid-gap: 20px;
   grid-template-areas:
-    "b w w w w a"
-    ". i i i i . "
-    ". g g g g .";
+    "w w w w "
+    "i i i i "
+    "g g g g ";
 }
 
 .weatherdatacard {
-  width: 400px;
-  height: 220px;
+  box-sizing: border-box;
+  width: 350px;
+  height: 200px;
+  display: flex;
   justify-content: space-between;
   flex-direction: column;
   background: #fdfcfc;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   border-radius: 11px;
+  padding: 20px;
 }
 .weatherdatacard > .header {
-  border: 2px solid black;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
+.arrow {
+  width: 20px;
+  height: 20px;
+  background: url("../static/arrow.png") no-repeat center;
+  background-size: contain;
+}
+.arrow:hover {
+  transform: scale(1.2);
+}
+
+.backarrow {
+  width: 15px;
+  height: 15px;
+  margin: 10px;
+  background: url("../static/backarrow.png") no-repeat center;
+  background-size: contain;
+}
+
+.backarrow:hover {
+  transform: scale(1.2);
+}
+
 .weatherdatacard > .middle {
   display: flex;
-  border: 2px solid black;
   justify-content: space-between;
+
+  font-size: 30px;
+  align-items: center;
 }
 .weatherdatacard > .middle > div {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background: url(../static/clouds.png) no-repeat center;
   background-size: contain;
 }
+
 .weatherdatacard > .bottom {
   display: flex;
-  border: 2px solid black;
   justify-content: space-between;
+  align-items: center;
+}
+.weatherdatacard > .bottom > .block {
+  display: flex;
+  align-items: center;
+}
+
+.weatherdatacard > .bottom > .block > .icon {
+  width: 30px;
+  height: 30px;
+  background: url(../static/alarmsign.png) no-repeat center;
+  background-size: contain;
+}
+.weatherdatacard > .bottom > .block > .text {
+  color: #bfaf1b;
+  font-size: 15px;
 }

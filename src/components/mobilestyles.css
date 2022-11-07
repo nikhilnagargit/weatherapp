@@ -1,0 +1,25 @@
+@media only screen and (max-width: 600px) {
+  .navbartop {
+    display: none;
+  }
+
+  .mycontainer {
+    justify-content: flex-start;
+  }
+
+  .searchbarcontainer {
+    width: 100%;
+  }
+
+  .searchbar {
+    border-radius: 15px;
+    box-shadow: none;
+  }
+  .searchbar > button {
+    width: 15px;
+    height: 15px;
+  }
+
+  .searchbar > input {
+  }
+}

@@ -1,50 +1,64 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./styles.css";
-import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { add, remove } from "../slices/watchlistSlice";
-const DetailPage: React.FC = () => {
-  const watchlist = useAppSelector((state) => state.watchlist);
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+
+const DetailPage: React.FC<any> = ({ currentCity }) => {
   const dispatch = useAppDispatch();
+  const watchlist = useAppSelector((state) => state.watchlist.mylist);
+
   return (
     <>
-      <div className="navbar">
-        <span className="app_logo"></span>
-        <span className="app_name">Weather Forecaster</span>
-      </div>
       <div className="details-container">
-        <div className="back-btn">
-          <Link to="/">{"< Back"}</Link>
-        </div>
         <div className="weather-card">
           <div className="icon"></div>
-          <div className="cityname">Banglore &#9664;</div>
-          <div className="temprature">35&#176;</div>
+          <div className="cityname">{currentCity.name} &#9664;</div>
+          <div className="temprature">
+            {(currentCity.main.temp - 273.15).toPrecision(2)}&#176;
+          </div>
         </div>
         <div className="action-card">
-          <button
-            onClick={() => {
-              dispatch(add("Kota"));
-            }}>
-            Add to list {"(+)"}
-          </button>
+          {
+            // if my current city , already exist in watchlist, then show remove button, otherwise show add button
+            watchlist.filter((city: any) => city.name === currentCity.name)
+              .length ? (
+              <button
+                className="btn btn-danger btn-sm removebtn"
+                onClick={() => {
+                  dispatch(remove(currentCity.name));
+                }}>
+                remove
+              </button>
+            ) : (
+              <div>
+                <span>Add to list </span>
+                <button
+                  className="btn btn-info btn-sm"
+                  onClick={() => {
+                    dispatch(add(currentCity));
+                  }}>
+                  +
+                </button>
+              </div>
+            )
+          }
+          {/*  */}
         </div>
         <div className="info-card">
           <div className="item">
             <div className="name">TIME</div>
-            <div className="value">11:07 AM</div>
+            <div className="value">12:00 AM</div>
           </div>
           <div className="item">
             <div className="name">PRESSURE</div>
-            <div className="value">678</div>
+            <div className="value">{currentCity.main.pressure}</div>
           </div>
           <div className="item">
             <div className="name">% RAIN</div>
-            <div className="value">40%</div>
+            <div className="value">50%</div>
           </div>
           <div className="item">
             <div className="name">HUMIDITY</div>
-            <div className="value">96</div>
+            <div className="value">{currentCity.main.humidity}</div>
           </div>
         </div>
         <div className="graph-card">
@@ -59,7 +73,7 @@ const DetailPage: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="right">graph will come here</div>
+          <div className="right"></div>
         </div>
       </div>
     </>

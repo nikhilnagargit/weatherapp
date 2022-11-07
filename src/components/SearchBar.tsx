@@ -3,17 +3,9 @@ import WeatherCard from "./WeatherCard";
 import { setCityName } from "../slices/currentCitySlice";
 import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { fetchWeatherData } from "../slices/currentCitySlice";
+import list from "./indianCities.json";
 type CityList = string[];
-const cities: CityList = [
-  "Banglore",
-  "Mumbai",
-  "Bangkok",
-  "Baran",
-  "Kota",
-  "Rajasthan",
-  "Mobara",
-  "Manju",
-];
+const cities: CityList = list.cities;
 
 const SearchBar: React.FC = () => {
   const [searchterm, setsearchterm] = useState<string>("");
@@ -34,19 +26,20 @@ const SearchBar: React.FC = () => {
   }, [cityname]);
 
   return (
-    <div className="searchbar">
-      <input
-        onChange={(e) => {
-          handleOnChange(e.target.value);
-        }}
-        value={searchterm}
-        type="text"
-        placeholder="Search Location"
-        className="searchbar"
-      />
-      <button onClick={() => handleSearch(searchterm)} type="submit">
-        <span></span>
-      </button>
+    <div className="searchbarcontainer">
+      <div className="searchbar">
+        <input
+          onChange={(e) => {
+            handleOnChange(e.target.value);
+          }}
+          value={searchterm}
+          type="text"
+          placeholder="Search Location"
+        />
+        <button onClick={() => handleSearch(searchterm)}>
+          <span></span>
+        </button>
+      </div>
       <div className="pillcontainer">
         {searchterm &&
           cities

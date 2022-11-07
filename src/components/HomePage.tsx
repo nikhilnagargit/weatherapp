@@ -1,24 +1,23 @@
 import React from "react";
-// import { useAppSelector, useAppDispatch } from "../app/hooks";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
 import SearchBar from "./SearchBar";
-import "./styles.css";
 import WatchList from "./WatchList";
 
 import WeatherCard from "./WeatherCard";
 
 const HomePage: React.FC = () => {
+  const currentCitydata = useAppSelector((state) => state.currentCity.data);
   return (
-    <div className="container">
-      <div className="navbar">
-        <span className="app_logo"></span>
-        <span className="app_name">Weather Forecaster</span>
+    <>
+      <div className="mycontainer">
+        <SearchBar />
+        {Object.keys(currentCitydata).length !== 0 ? (
+          <WeatherCard />
+        ) : (
+          <WatchList />
+        )}
       </div>
-
-      <SearchBar />
-      <WeatherCard />
-
-      {/* <WatchList /> */}
-    </div>
+    </>
   );
 };
 
