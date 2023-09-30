@@ -1,5 +1,7 @@
 # Find my app online - 
 https://nimble-melba-ecc87f.netlify.app/
+<img width="270" alt="Screenshot_20221112_124818" src="https://github.com/nikhilnagargit/weatherapp/assets/44896376/05df3f56-b100-4381-a910-6a683a6655a2">
+<img width="691" alt="Screenshot_20221112_124622" src="https://github.com/nikhilnagargit/weatherapp/assets/44896376/5a44caae-3245-4e23-8822-3403aea95b9d">
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
